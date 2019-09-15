@@ -7,8 +7,6 @@ namespace _12656132
 {
     public class Controller
     {
-        private string userName;
-        private string userPassword;
         private string[] readFile;
         View view = new View();
         Validation validation = new Validation();
@@ -24,12 +22,13 @@ namespace _12656132
 
         public void Login()
         {
-            Console.WriteLine("Welcome to simple Banking System");
-            Console.WriteLine("Login Start");
-            Console.WriteLine("User name: ");
-            userName = Console.ReadLine();
-            Console.WriteLine("Password: ");
-            userPassword = Console.ReadLine();
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine("\t WELCOME TO SIMPLE BANKING SYSTEM");
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine("\t \t LOGIN START");
+            
+            //get data username and password from input
+            User dataInput = validation.checkLogin();
 
 
             //open login.txt file and split data and check valid username and password
@@ -37,31 +36,35 @@ namespace _12656132
             List<User> users = new List<User>();
             foreach (string file in files)
             {
+                //split data by |, user name at the first and then password
                 readFile = file.Split('|');
                 User checkValid = new User { Username = readFile[0], Password = readFile[1] };
+                //get data from login.txt and add to list
                 users.Add(checkValid);
             }
 
 
             //fetch data input with data in file txt, if its not match, print error, if match, go to main menu
-            User? userData = null;
+            User userData = null;
             foreach (User user in users)
             {
-                if (user.Username.Equals(userName) && user.Password.Equals(userPassword))
+                if (user.Username.Equals(dataInput.Username) && user.Password.Equals(dataInput.Password))
                 {
                     userData = user;
+                    mainMenu();
                 }
+                else
+                {
+                    Console.WriteLine("Username or password are incorrect, please try again");
+                    Login();
+                }
+
             }
 
             if (userData == null)
             {
-                Console.WriteLine("Username or password are incorrect, please try again");
+                Console.WriteLine("No account found, you need to register");
                 Login();
-            }
-            else
-            {
-                //go to to main menu
-                mainMenu();
             }
         }
 
@@ -107,7 +110,7 @@ namespace _12656132
             account.phoneNumber = validation.isValidPhoneNumber("Phone Number");
             account.email = validation.isValidEmail();
 
-            view.displayInformation(account);
+            view.lookBack(account);
 
             Console.WriteLine("Are you sure with this information?(y/n) ");
 
@@ -123,7 +126,7 @@ namespace _12656132
 
                     //create file name equals account number
                     string textFileName = Convert.ToString(account.accountNumber) + ".txt";
-                    string[] createText = { account.firstName + "|" + account.lastName + "|" + account.address + "|" + account.phoneNumber + "|" + account.email +"|" + account.balance  };
+                    string[] createText = {account.firstName + "|" + account.lastName + "|" + account.address + "|" + account.phoneNumber + "|" + account.email +"|" + account.balance  };
                     File.WriteAllLines(textFileName, createText);
 
                     //add account to array list
@@ -132,7 +135,7 @@ namespace _12656132
                     mainMenu();
                     break;
                 case "n":
-                    Console.WriteLine("Create account was cancled, go back to main menu");
+                    Console.WriteLine("Create account was canceled, go back to main menu");
                     mainMenu();
                     break;
             }
@@ -192,23 +195,23 @@ namespace _12656132
 
                 //save data to file with file name equal account number with new balance
                 string file_name = Convert.ToString(getAccount.accountNumber) + ".txt";
-                string[] createText = { getAccount.firstName + "|" + getAccount.lastName + "|" +
+                string[] createText = {getAccount.firstName + "|" + getAccount.lastName + "|" +
                         getAccount.address + "|" + getAccount.phoneNumber + "|" + getAccount.email + "|" + getAccount.balance };
                 File.WriteAllLines(file_name, createText);
                 accounts.Add(getAccount);
+                mainMenu();
 
-
-                Console.WriteLine("Do you want to deposit more?");
-                string choose = validation.confirmationCheck();
-                switch (choose)
-                {
-                    case "y":
-                        deposit();
-                        break;
-                    case "n":
-                        this.mainMenu();
-                        break;
-                }
+                //Console.WriteLine("Do you want to deposit in another account?(y/n)");
+                //string choose = validation.confirmationCheck();
+                //switch (choose)
+                //{
+                //    case "y":
+                //        deposit();
+                //        break;
+                //    case "n":
+                //        this.mainMenu();
+                //        break;
+                //}
             }
             else
             {
@@ -263,19 +266,19 @@ namespace _12656132
                         getAccount.address + "|" + getAccount.phoneNumber + "|" + getAccount.email + "|" + getAccount.balance };
                     File.WriteAllLines(file_name, createText);
                     accounts.Add(getAccount);
+                    mainMenu();
 
-
-                    Console.WriteLine("Do you want to withdraw more?(y/n)");
-                    string choose = validation.confirmationCheck();
-                    switch (choose)
-                    {
-                        case "y":
-                            withdraw();
-                            break;
-                        case "n":
-                            mainMenu();
-                            break;
-                    }
+                    //Console.WriteLine("Do you want to withdraw in another account?(y/n)");
+                    //string choose = validation.confirmationCheck();
+                    //switch (choose)
+                    //{
+                    //    case "y":
+                    //        withdraw();
+                    //        break;
+                    //    case "n":
+                    //        mainMenu();
+                    //        break;
+                    //}
                 }
             }
             else
@@ -303,7 +306,7 @@ namespace _12656132
             Account getAccount = searchFunction(checkAccountNumber);
             if (getAccount != null)
             {
-                view.displayStatement(getAccount);
+                view.displayInformation(getAccount);
                 Console.WriteLine("Email Statement (y/n)?");
                 string choose = validation.confirmationCheck();
                 switch (choose)
@@ -393,6 +396,7 @@ namespace _12656132
                 {
                     readFile = file.Split('|');
                 }
+                
                 Account validAcc = new Account
                 {
                     //read all data in this file

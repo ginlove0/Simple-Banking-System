@@ -9,14 +9,36 @@ namespace _12656132
         public string input(string value)
         {
             //check valid of data input
-            Console.WriteLine("Enter {0}", value);
+            Console.WriteLine("{0}", value);
             string getValue = Console.ReadLine();
             if (getValue.Length > 0)
             {
                 return getValue;
             }
-            Console.WriteLine("{0} should not be blank!");
+            Console.WriteLine("{0} should not be blank!", value);
             return input(value);
+        }
+
+        public User checkLogin()
+        {
+            string usernameInput = input("User Name:");
+            Console.WriteLine("Password:");
+
+            string passwordInput = null;
+            while (true)
+            {
+                var key = Console.ReadKey(true);
+                if (key.Key == ConsoleKey.Enter) break;
+                passwordInput += key.KeyChar;
+            }
+            //create new user with data from input
+            User userInput = new User
+            {
+                Username = usernameInput,
+                Password = passwordInput
+            };
+
+            return userInput;
         }
 
         public string isValidEmail()

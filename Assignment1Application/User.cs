@@ -1,11 +1,11 @@
 ﻿using System;
 namespace _12656132
 {
-    public struct User
+    public class User
     {
-        public String Username { get; set; }
+        public string Username { get; set; }
 
-        public String Password { get; set; }
+        public string Password { get; set; }
     }
 
 }
