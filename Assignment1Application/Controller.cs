@@ -299,7 +299,40 @@ namespace _12656132
 
         private void accountStatement()
         {
-
+            int checkAccountNumber = validation.isValidAccountNumber("Your account number");
+            Account getAccount = searchFunction(checkAccountNumber);
+            if (getAccount != null)
+            {
+                view.displayStatement(getAccount);
+                Console.WriteLine("Email Statement (y/n)?");
+                string choose = validation.confirmationCheck();
+                switch (choose)
+                {
+                    case "y":
+                        Console.WriteLine("Email sent");
+                        mainMenu();
+                        break;
+                    case "n":
+                        this.mainMenu();
+                        break;
+                }
+            }
+            else
+            {
+                //if not found account, running error
+                Console.WriteLine("Couldn't find this account!");
+                Console.WriteLine("Do you want to try again?(y/n)");
+                string choose = validation.confirmationCheck();
+                switch (choose)
+                {
+                    case "y":
+                        accountStatement();
+                        break;
+                    case "n":
+                        this.mainMenu();
+                        break;
+                }
+            }
         }
 
         private void deleteAccount()

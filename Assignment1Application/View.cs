@@ -28,7 +28,21 @@ namespace _12656132
         {
             Console.WriteLine("");
             Console.WriteLine("Account Details");
-            Console.WriteLine("Your account details: ");
+            Console.WriteLine("Your account number: ");
+            Console.WriteLine("First Name: " + account.firstName);
+            Console.WriteLine("Last Name: " + account.lastName);
+            Console.WriteLine("Address: " + account.address);
+            Console.WriteLine("Email: " + account.email);
+            Console.WriteLine("Phone Number: " + account.phoneNumber);
+            Console.WriteLine("");
+        }
+
+        public void displayStatement(Account account)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Account Details");
+            Console.WriteLine("Your account number: ");
+            Console.WriteLine("Your balance: $ ");
             Console.WriteLine("First Name: " + account.firstName);
             Console.WriteLine("Last Name: " + account.lastName);
             Console.WriteLine("Address: " + account.address);

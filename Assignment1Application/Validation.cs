@@ -108,7 +108,7 @@ namespace _12656132
         public decimal isValidDecimal()
         {
             //check valid of balance input
-            Console.WriteLine("Please enter an amount:");
+            Console.WriteLine("Please enter an amount: $");
             string amount = Console.ReadLine();
             try
             {
