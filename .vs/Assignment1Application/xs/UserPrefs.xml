@@ -1,0 +1,29 @@
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{0C237AF5-215B-4AD5-B146-AE9105CCEF21}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assignment1Application/Validation.cs">
+    <Files>
+      <File FileName="Assignment1Application/Homepage.cs" Line="365" Column="49" />
+      <File FileName="Assignment1Application/View.cs" Line="37" Column="35" />
+      <File FileName="Assignment1Application/Account.cs" Line="20" Column="45" />
+      <File FileName="Assignment1Application/Valid.cs" Line="43" Column="1" />
+      <File FileName="Assignment1Application/Program.cs" Line="10" Column="23" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Assignment1Application" expanded="True">
+            <Node name="Assignment1Application" expanded="True">
+              <Node name="Validation.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assignment1Application PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

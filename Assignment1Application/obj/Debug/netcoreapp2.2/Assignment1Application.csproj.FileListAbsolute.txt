@@ -1,0 +1,11 @@
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/bin/Debug/netcoreapp2.2/Assignment1Application.deps.json
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/bin/Debug/netcoreapp2.2/Assignment1Application.runtimeconfig.json
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/bin/Debug/netcoreapp2.2/Assignment1Application.runtimeconfig.dev.json
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/bin/Debug/netcoreapp2.2/Assignment1Application.dll
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/bin/Debug/netcoreapp2.2/Assignment1Application.pdb
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/obj/Debug/netcoreapp2.2/Assignment1Application.csprojAssemblyReference.cache
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/obj/Debug/netcoreapp2.2/Assignment1Application.csproj.CoreCompileInputs.cache
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/obj/Debug/netcoreapp2.2/Assignment1Application.AssemblyInfoInputs.cache
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/obj/Debug/netcoreapp2.2/Assignment1Application.AssemblyInfo.cs
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/obj/Debug/netcoreapp2.2/Assignment1Application.dll
+/Users/gin/Desktop/Application .Net/Assignment1Application/Assignment1Application/obj/Debug/netcoreapp2.2/Assignment1Application.pdb
